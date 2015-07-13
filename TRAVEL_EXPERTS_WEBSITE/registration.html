@@ -1,0 +1,310 @@
+<!--  The author:Chen Cui  -->
+<!--  The date written:May 09,2015  -->
+<!--  The class:OOSD April15  -->
+<!--  The group:DPACK_OOSD  -->
+<!--  title:this is groupassignment's Customer Registration page  -->
+<!--  Presentation Day: May 29,2015  -->
+<!--  Harvey Peter 1979.Grade 12   -->
+
+<!DOCTYPE html>
+<html>
+<head>
+      <title></title>
+   <script>
+      function validate()<!-- this part is make sure the customer did not type blank information to send to server.-->
+	  {
+	     var myform = document.getElementById("form1");
+		 var message = "";
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.fname.value))
+		 {
+		    message += "First Name has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.lname.value))
+		 {
+		    message += "Last Name has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]* ?[A-Za-z]+$/i);
+		 if (!regexp.test(myform.address.value))
+		 {
+		    message += "Address has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.city.value))
+		 {
+		    message += "City has an invalid format<br />";
+		 }
+		 
+		 if (myform.prov.value == "")
+		 {
+		    message += "Province must have a value<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Z][0-9][A-Z]\s?\d[A-Z]\d$/i);
+		 if (!regexp.test(myform.postal.value))
+		 {
+		    message += "Postal has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.country.value))
+		 {
+		    message += "Country has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]+$/i);
+		 if (!regexp.test(myform.homephone.value))
+		 {
+		    message += "Home Phone Number has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]+$/i);
+		 if (!regexp.test(myform.homephone2.value))
+		 {
+		    message += "Home Phone Number has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]+$/i);
+		 if (!regexp.test(myform.businessphone.value))
+		 {
+		    message += "Business Phone Number has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]+$/i);
+		 if (!regexp.test(myform.businessphone2.value))
+		 {
+		    message += "Business Phone Number has an invalid format<br />";
+		 }
+		 
+		 if (myform.travel.value == "")
+		 {
+		    message += "Kind of travel must have a value<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.tripstart.value))
+		 {
+		    message += "Trip Start has an invalid format<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.tripend.value))
+		 {
+		    message += "Trip End has an invalid format<br />";
+		 }
+		 
+		 if (myform.description.value == "")
+		 {
+		    message += "Description must have a value<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[A-Za-z]+$/i);
+		 if (!regexp.test(myform.destination.value))
+		 {
+		    message += "Destination has an invalid format<br />";
+		 }
+		 
+		 if (myform.departingdate.value == "")
+		 {
+		    message += "Departing Date must have a value<br />";
+		 }
+		 
+		 if (myform.returningdate.value == "")
+		 {
+		    message += "Returning Date must have a value<br />";
+		 }
+		 
+		 if (myform.card.value == "")
+		 {
+		    message += "Which card must have a value<br />";
+		 }
+		 
+		 var regexp = new RegExp(/^[0-9]+$/i);
+		 if (!regexp.test(myform.creditcardnumber.value))
+		 {
+		    message += "Credit Card Number has an invalid format<br />";
+		 }
+		 
+		  if (myform.creditcardexpiryday.value == "")
+		 {
+		    message += "Credit Card Expiry Day must have a value<br />";
+		 }
+		 
+		 if (message == "")
+		 {
+		     return confirm("Continue submitting?");
+		 }
+		 
+		 else
+		 {
+		    document.getElementById("error").innerHTML = message;
+			return false;
+		 }
+	  }
+	  function showtooltip(target)<!-- this function is for the mouseover and display information about the travel experts' class. After test it is work on firefox, but can not display on chrome and IE.-->
+	  {
+		console.log("showtooltip"+target);
+	    var myVar = document.getElementById(target);
+		myVar.style.visibility = 'visible';
+	  }
+	  function hidetooltip(target)<!--this function is for the mouseover and display information about the travel experts' class. After test it is work on firefox, but can not display on chrome and IE.-->
+	  {
+		console.log("hidetooltip"+target);
+	    var myVar = document.getElementById(target);
+		myVar.style.visibility = 'hidden';
+	  }
+
+   </script>
+   <style>
+   .tooltip{position:absolute; top:45em; left:20em; visibility:hidden;}
+   </style>  <!-- this style is for the mouseover and display information about the travel experts' class. After test it is work on firefox, but can not display on chrome and IE.-->
+   
+</head>
+<body>
+   <div id="tooltip01" class="tooltip"> <!-- this information is for the mouseover and display information about the travel experts' class. After test it is work on firefox, but can not display on chrome and IE.-->
+   This is the bussiness class and you will get the most server!
+   </div>
+   <div id="tooltip02" class="tooltip">
+   This is the Group class and you will get the good server!
+   </div>
+   <div id="tooltip03" class="tooltip">
+   This is the Leisure class and you will get the ok server!
+   </div>
+   <strong>Please enter your personal information and plan</strong>
+   <p id="error"></p>
+   <form method="get" action="bounce.htm" id="form1">
+      <table>
+        <tr><td align="right"><label for="fname">First Name:</label></td><td><input type="text" name="fname" /></td></tr>
+        <tr><td align="right"><label for="lname">Last Name:</label></td><td><input type="text" name="lname" /></td></tr>
+        <tr><td align="right"><label for="address">Address:</label></td><td><input type="text" name="address" /></td></tr>
+        <tr><td align="right"><label for="city">City:</label></td><td><input type="text" name="city" /></td></tr>
+        <tr><td align="right"><label for="prov">Province:</label></td>
+		    <td><select id="prov">
+			    <option>--pickup one--</option>
+                <option>AB</option>
+                <option>BC</option>
+                <option>MB</option>
+			    <option>NB</option>
+			    <option>NL</option>
+			    <option>NS</option>
+			    <option>NT</option>
+			    <option>NU</option>
+			    <option>ON</option>
+			    <option>PE</option>
+				<option>QC</option>
+				<option>SK</option>
+				<option>YT</option>
+         </select></td></tr>
+        <tr><td align="right"><label for="postal">Postal Code:</label></td><td><input type="text" name="postal" onchange="this.value = this.value.toUpperCase()" /></td></tr>
+		<tr><td align="right"><label for="country">Country:</label></td><td><input type="text" name="country" /></td></tr>
+        <tr><td align="right"><label for="homephone">Home Phone Number:</label></td>
+		    <td><input type="text" name="homephone" maxlength="3" size="3">-<input type="text" name="homephone2" maxlength="7" size="7"/></td>			
+			</tr>
+		<tr><td align="right"><label for="businessphone">Business Phone Number:</label></td>
+		    <td><input type="text" name="businessphone" maxlength="3" size="3">-<input type="text" name="businessphone2" maxlength="7" size="7"/></td>			
+			</tr>
+        <tr><td align="right"><label for="email">Email Address:</label></td><td><input type="text" name="email" /></td></tr>
+		<tr><td align="right">what kind of travel you need:</td>
+            <td><fieldset>Return <input type="radio" name="travel" value="Return">
+                                       One way <input type="radio" name="travel" value="Oneway">
+				         Multiple destinations <input type="radio" name="travel" value="Multiple destinations"></fieldset></td></tr>
+        <tr><td align="right"><label for="tripstart">Trip Start:</label></td><td><input type="text" name="tripstart" /></td></tr>
+        <tr><td align="right"><label for="tripend">Trip End:</label></td><td><input type="text" name="tripend" /></td></tr>
+		<tr><td align="right"><label for="description">Description:</td><td><textarea name="description" rows="10" cols="40" class="inputcolor"></textarea></td></tr>
+		<tr><td align="right"><label for="destination">Destination:</label></td><td><input type="text" name="destination" /></td></tr>
+        <tr><td align="right"><label for="departingdate">Departing Date:</label></td><td><input type="date" name="departingdate" /></td></tr>
+        <tr><td align="right"><label for="returningdate">Returning Date:</label></td><td><input type="date" name="returningdate" /></td></tr>
+		<tr><td align="right">what kind of class you want?</td>
+            <td><select id="class">
+                <option>--pickup one--</option>                                                
+                <option>business class</option> 
+                <option>first class</option>
+				<option>double</option>
+				<option>Delux</option>
+				<option>Economy</option>
+				<option>Interior</option>
+				<option>Single</option>
+				<option>Ocean View</option>
+				<option>Not Applicable</option>
+         </select></td></tr>
+		<tr><td align="right">Which trip type you want?</td> <!-- this selection part is for the mouseover and display information about the travel experts' class. After test it is work on firefox, but can not display on chrome and IE.-->
+            <td><select id="triptype">
+			    <option>--pickup one--</option>
+                <option onMouseOver="showtooltip('tooltip01');"
+				        onMouseOut="hidetooltip('tooltip01');">Business</option>
+                <option onMouseOver="showtooltip('tooltip02');"
+				        onMouseOut="hidetooltip('tooltip02');">Group</option> 
+                <option onMouseOver="showtooltip('tooltip03');"
+				        onMouseOut="hidetooltip('tooltip03');">Leisure</option>
+                </select></td></tr>
+        <tr><td align="right">How many adult(+18)?</td>
+            <td><select id="adult">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+			    <option value=4>4</option>
+			    <option value=5>5</option>
+			    <option value=6>6</option>
+			    <option value=7>7</option>
+			    <option value=8>8</option>
+			    <option value=9>9</option>
+			    <option value=10>10</option>
+         </select></td></tr>
+        <tr><td align="right">How many child(0-17)?</td>
+            <td><select id="child">
+			    <option value=0>0</option>
+			    <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+			    <option value=4>4</option>
+			    <option value=5>5</option>
+			    <option value=6>6</option>
+			    <option value=7>7</option>
+			    <option value=8>8</option>
+			    <option value=9>9</option>
+			    <option value=10>10</option>
+         </select></td></tr>
+		 <tr><td align="right"><label for="totalpeople">Total peoples:</label></td><td><p id="total"></p></td>
+		     <td><input type="button" onclick="AddFunction()" value="Calculate the total peoples" ></td></tr>
+        <script>
+		   function AddFunction() {
+           var x = document.getElementById("adult").value;
+           var y = document.getElementById("child").value;
+		   var z = parseInt(x) + parseInt(y);
+           document.getElementById("total").innerHTML = z;
+		  }
+        </script>
+		<tr><td align="right">Choose the card:</td>
+            <td><fieldset> <img src="./assets/images/amex.gif"><input type="radio" name="card" value="amex">
+                           <img src="./assets/images/mastercard.gif"><input type="radio" name="card" value="mastercard">
+						   <img src="./assets/images/dinnercard.png" border="0" height="real_height" width="real_width" onload="resizeImg(this, 30, 50);"><input type="radio" name="card" value="dinnercard">
+                                <script type="text/javascript">
+                                    function resizeImg(img, height, width) 
+									{
+                                      img.height = height;
+                                      img.width = width;
+                                    }
+                                </script>
+						   <img src="./assets/images/visacard.jpg" border="0" height="real_height" width="real_width" onload="resizeImg(this, 30, 50);"><input type="radio" name="card" value="visacard">
+						        <script type="text/javascript">
+                                    function resizeImg(img, height, width) 
+									{
+                                      img.height = height;
+                                      img.width = width;
+                                    }
+                                </script>
+				</fieldset></td></tr>
+		<tr><td align="right"><label for="creditcardnumber">Credit Card Number:</label></td><td><input type="text" name="creditcardnumber" maxlength="16" size="16"/></td></tr>
+		<tr><td align="right"><label for="creditcardexpiryday">Credit Card Expiryday:</label></td><td><input type="date" name="creditcardexpiryday" /></td></tr>
+	    <tr><td align="center"><input type="submit" value="Submit"
+          onclick="return validate()" /></td>
+	        <td align="center"><input type="reset" onclick="return confirm('Are you sure you want to reset?')" /></td></tr>
+	  </table>
+	  </form>
+</body>
+</html>
